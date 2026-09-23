@@ -1,0 +1,7 @@
+[tool.mldoct]
+# Empty select means all rules.
+select = []
+ignore = []
+fail_on = "ERROR"
+confidence = 0.0
+workers_warning = 0

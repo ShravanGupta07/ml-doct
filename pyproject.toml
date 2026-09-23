@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mldoct"
+version = "0.3.0"
+description = "ML Doctor: static PyTorch training analysis, safe fixes, runtime watchdog, and metric diagnosis."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Shravan Gupta"}]
+license = {text = "MIT"}
+keywords = ["pytorch", "machine-learning", "developer-tools", "static-analysis", "mlops"]
+classifiers = ["Development Status :: 4 - Beta", "Intended Audience :: Developers", "License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3"]
+dependencies = ["numpy", "pandas", "scikit-learn", "rich", "tomli; python_version < '3.11'"]
+
+[project.optional-dependencies]
+torch = ["torch"]
+test = ["pytest"]
+all = ["torch", "pytest"]
+
+[project.urls]
+Homepage = "https://shravangupta.dev"
+
+[project.scripts]
+mldoctor = "mldoctor.mldoctor:main"
+
+[tool.setuptools]
+packages = ["mldoctor"]
+
+[tool.setuptools.package-data]
+mldoctor = ["doctor_model.pkl"]
+
+[tool.mldoct]
+ignore = []
+select = []
+fail_on = "ERROR"
+confidence = 0.0
+workers_warning = 0
